@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Simulaciones — Trabajo de investigación</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel ="icon" href="Fotos/icons8-dron-con-cámara-glyph-neue-96.ico" type="image/x-icon">
+  
+  <style>
+    #escenario3D {
+      width: 100%;
+      height: 60vh;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+      margin: 20px 0;
+    }
+
+    #info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-inner">
+      <h2 class="brand">¿DE QUÉ MANERA LA EFECTIVIDAD DE LOS DRONES
+         HA TRANSFORMADO LAS REGLAS Y DINÁMICAS DE LA GUERRA MODERNA?</h2>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="simulaciones.html">Simulaciones</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <h2>Simulaciones</h2>
+    <p>Explora el escenario 3D interactivo. Usa los controles para navegar por el entorno.</p>
+    
+    <!-- Barra de controles compartida -->
+    <div class="player shared-player" aria-label="Controles compartidos">
+      <button id="step_shared" title="Retroceder 0.5s">⟲</button>
+      <button id="play_shared" title="Play/Pause">Pausa</button>
+      <button id="stepForward_shared" title="Adelantar 0.5s">⟳</button>
+      <input id="seek_shared" type="range" min="0" max="1" step="0.01" value="0">
+      <span id="timeLabel_shared">0.00 / 0.00 s</span>
+    </div>
+
+    <!-- Pestañas para elegir instancia -->
+    <div class="tabs" role="tablist" aria-label="Instancias">
+      <button class="tab active" data-target="panel-v1" role="tab" aria-selected="true">simulación 1</button>
+      <button class="tab" data-target="panel-v2" role="tab" aria-selected="false">simulación 2</button>
+    </div>
+
+    <!-- Paneles: cada panel contiene su visor, controles y descripción -->
+    <div class="panel-container">
+      <section id="panel-v1" class="panel active">
+        <div id="escenario3D_v1" class="visor">
+          <div id="info_v1" class="info">Usa el mouse para rotar la cámara • WASD para mover</div>
+        </div>
+        <!-- controles individuales eliminados: se usa la barra compartida arriba -->
+        <div id="desc_v1" class="descripcion">
+          <h4>ATAQUE FENIX</h4>
+          <p>Descripción y notas de la primera simulación. Puedes cambiar este texto.</p>
+        </div>
+      </section>
+
+      <section id="panel-v2" class="panel" hidden>
+        <div id="escenario3D_v2" class="visor">
+          <div id="info_v2" class="info">Usa el mouse para rotar la cámara • WASD para mover</div>
+        </div>
+        <!-- controles individuales eliminados: se usa la barra compartida arriba -->
+        <div id="desc_v2" class="descripcion">
+          <h4>Explicación instancia 2</h4>
+          <p>Descripción y notas de la segunda simulación. Reemplaza con el contenido que quieras.</p>
+        </div>
+      </section>
+    </div>
+
+    <div class="panel">
+      <h3>Instrucciones</h3>
+      <ul>
+        <li>Mouse: Rotar la cámara y ver el escenario desde diferentes ángulos</li>
+        <li>W: Mover hacia adelante</li>
+        <li>S: Mover hacia atrás</li>
+        <li>A: Mover hacia la izquierda</li>
+        <li>D: Mover hacia la derecha</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer container">
+    <p>Desarrollado por Ángel David García Loor — 2025</p>
+  </footer>
+  <!-- Import map para resolver el specifier 'three' usado por los módulos examples/jsm -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/": "https://unpkg.com/three@0.160.0/"
+    }
+  }
+  </script>
+  <!-- Cargamos nuestro módulo principal -->
+  <script type="module" src="simulaciones.js"></script>
+</body>
+</html>
